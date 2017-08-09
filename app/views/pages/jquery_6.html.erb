@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>css demo</title>
+    <style media="screen">
+      div{
+        width: 60px;
+        height: 60px;
+        margin: 5px;
+        float: left;
+      }
+      .color-blue{
+        background-color:blue;
+      }
+      .color-green{
+        background-color: rgb(15, 99, 30);
+      }
+      .color-darkblue{
+        background-color: #123456;
+      }
+      .color-red{
+        background-color:#f11;
+      }
+    </style>
+  </head>
+  <body>
+    <span id="result">&nbsp;</span>
+
+    <div class="color-blue">
+      1
+    </div>
+    <div class="color-green">
+      2
+    </div>
+    <div class="color-darkblue">
+      3
+    </div>
+    <div class="color-red">
+      4
+    </div>
+
+    <script>
+      $("div").click(function(){
+        var color = $(this).css("background-color");
+        $("#result").html("That div is <span style='color:'" + color + ";'>" + color + "</span>.");
+      })
+    </script>
+  </body>
+</html>
