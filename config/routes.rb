@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   get "/jquery_6" => "pages#jquery_6"
   get "/jquery-7" => "pages#jquery_7"
 
-  resources :posts
+  resources :posts do
+    member do
+      post "like" => "posts#like"
+      post "unlike" => "posts#unlike"
+    end
+  end
   root "posts#index"
 end
