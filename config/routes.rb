@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   get "/jquery_6" => "pages#jquery_6"
   get "/jquery-7" => "pages#jquery_7"
 
+  resources :posts
   root "posts#index"
 end
