@@ -10,6 +10,11 @@
       <span id="post-like-<%= post.id%>">
         <%= render :partial => "like", :locals => {:post => post} %>
       </span>
+
+      <span id="post-collect-<%= post.id%>">
+        <%= render :partial => "collect", :locals => {:post => post} %>
+      </span>
+
       <% if current_user && post.user == current_user %>
         <p class="text-right">
           <%= link_to "Delete", post_path(post), :method => :delete, :remote => true, :class => "btn btn-danger" %>

@@ -1,0 +1,9 @@
+&nbsp;
+<span id="post-collect-count-<%= post.id %>" class="label label-success"><%= post.collects.count%> </span>
+<% if current_user %>
+  <% if post.find_collect(current_user) %>
+    <%= link_to "💔", discollect_post_path(post), :method => :post, :remote => true %>
+  <% else %>
+    <%= link_to "❤️", collect_post_path(post), :method => :post, :remote => true %>
+  <% end %>
+<% end %>

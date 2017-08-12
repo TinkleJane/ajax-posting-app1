@@ -39,6 +39,21 @@ class PostsController < ApplicationController
     render "like"
   end
 
+  def collect
+    @post = Post.find(params[:id])
+    unless @post.find_collect(current_user)
+      Collect.create(:user => current_user, :post => @post)
+    end
+  end
+
+  def discollect
+    @post = Post.find(params[:id])
+    collect = @post.find_collect(current_user)
+    collect.destroy
+
+    render "collect"
+  end
+
   def post_params
     params.require(:post).permit(:content)
   end
