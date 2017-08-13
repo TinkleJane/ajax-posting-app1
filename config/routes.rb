@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       post "collect" => "posts#collect"
       post "discollect" => "posts#discollect"
       post "toggle_flag" => "posts#toggle_flag"
+      post "rate" => "posts#rate"
     end
   end
   root "posts#index"
