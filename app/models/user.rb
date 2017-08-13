@@ -14,4 +14,8 @@ class User < ApplicationRecord
 
   has_many :collects, :dependent => :destroy
   has_many :collected_posts, :through => :collects, :source => :post
+
+  def is_admin?
+    role == "admin"
+  end
 end
