@@ -21,10 +21,26 @@
     $.ajax({
       url: url,
       method: 'DELETE',
-      dataType: 'json'
+      dataType: 'json',
       success: function(data){
         $("#post-" + data["id"]).remove();
       }
     })
+  })
+
+  var current_post_id = <%= @posts.last.id%>
+  $(window).scroll(function(){
+    if((window.innerHeight + window.scrollY) >= document.body.offsetHeight){
+      var url = "posts?max_id=" + current_post_id;
+      if(url){
+        $.ajax({
+          url: url,
+          method: "GET",
+          dataType: "script"
+        })
+      }else{
+        console.log("data ended")
+      }
+    }
   })
 </script>
